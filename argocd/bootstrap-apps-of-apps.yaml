@@ -15,7 +15,7 @@ spec:
     repoURL: https://github.com/sieczak-a/k8s-cluster
     targetRevision: HEAD
     directory:
-      recurse: true 
+      recurse: true
   syncPolicy:
     automated:
       prune: true
