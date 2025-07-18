@@ -11,7 +11,7 @@ spec:
     namespace: argocd
   project: default
   source:
-    path: k8s-cluster/argocd/apps
+    path: argocd/apps
     repoURL: https://github.com/sieczak-a/k8s-cluster.git
     targetRevision: HEAD
   syncPolicy:
