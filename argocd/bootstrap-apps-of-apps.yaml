@@ -14,6 +14,8 @@ spec:
     path: argocd/apps
     repoURL: https://github.com/sieczak-a/k8s-cluster
     targetRevision: HEAD
+    directory:
+      recurse: true 
   syncPolicy:
     automated:
       prune: true
