@@ -1,0 +1,10 @@
+## Custom resource configuration
+crds:
+  # -- Install and upgrade CRDs
+  install: true
+
+configs:
+  cm:
+    # -- Enable local admin user
+    ## Ref: https://argo-cd.readthedocs.io/en/latest/faq/#how-to-disable-admin-user
+    admin.enabled: true
