@@ -14,6 +14,9 @@ spec:
     chart: keycloak
     repoURL: https://charts.bitnami.com/bitnami
     targetRevision: 19.0.3
+    helm:
+      valueFiles:
+        - values.yaml
   syncPolicy:
     automated:
       prune: true

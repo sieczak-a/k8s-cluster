@@ -14,6 +14,9 @@ spec:
     chart: vault-secrets-operator
     repoURL: https://charts.deliveryhero.io/
     targetRevision: 2.6.2
+    helm:
+      valueFiles:
+        - values.yaml
   syncPolicy:
     automated:
       prune: true
