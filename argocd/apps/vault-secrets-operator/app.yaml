@@ -12,8 +12,8 @@ spec:
   project: default
   source:
     chart: vault-secrets-operator
-    repoURL: https://charts.deliveryhero.io/
-    targetRevision: 2.6.2
+    repoURL: https://helm.releases.hashicorp.com
+    targetRevision: 0.10.0
     helm:
       valueFiles:
         - values.yaml
