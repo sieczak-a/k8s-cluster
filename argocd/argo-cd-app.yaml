@@ -10,7 +10,7 @@ spec:
   project: default
   source:
     path: argocd
-    repoURL: https://github.com/USERNAME/REPONAME.git # Please replace with your repository URL
+    repoURL: https://github.com/sieczak-a/k8s-cluster.git
     targetRevision: HEAD
     directory:
       recurse: true
