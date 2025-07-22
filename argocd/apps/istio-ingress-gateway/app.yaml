@@ -1,3 +1,4 @@
+---
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
@@ -27,4 +28,4 @@ spec:
         factor: 2
         maxDuration: 3m
     syncOptions:
-    - CreateNamespace=true
+      - CreateNamespace=true
