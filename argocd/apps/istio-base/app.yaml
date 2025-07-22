@@ -1,20 +1,20 @@
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
-  name: istio-ingressgateway
+  name: istio-base
   namespace: argocd
   annotations:
-    argocd.argoproj.io/sync-wave: "2"
+    argocd.argoproj.io/sync-wave: "0"
   labels:
     app.kubernetes.io/part-of: argocd
 spec:
   destination:
     server: https://kubernetes.default.svc
-    namespace: istio-ingress
+    namespace: istio-system
   project: default
   source:
     repoURL: https://istio-release.storage.googleapis.com/charts
-    chart: gateway
+    chart: base
     targetRevision: 1.26.2
   syncPolicy:
     automated:
