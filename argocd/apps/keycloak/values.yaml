@@ -1,10 +1,4 @@
 ---
 extraEnvVars:
-  - name: KC_PROXY
-    value: edge
-  - name: KC_HOSTNAME
-    value: keycloak.sieczak.cloud
-  - name: KC_HOSTNAME_STRICT
-    value: "true"
-  - name: KC_HOSTNAME_STRICT_HTTPS
-    value: "true"
+  - name: KEYCLOAK_FRONTEND_URL
+    value: "https://keycloak.sieczak.cloud"

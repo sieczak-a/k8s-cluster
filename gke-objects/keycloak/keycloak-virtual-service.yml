@@ -6,7 +6,7 @@ metadata:
   namespace: keycloak
 spec:
   hosts:
-    - keycloak.sieczak.cloud
+    - "keycloak.sieczak.cloud"
   gateways:
     - keycloak-gateway
   http:
