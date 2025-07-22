@@ -1,4 +1,4 @@
 ---
 extraEnvVars:
-  - name: KEYCLOAK_FRONTEND_URL
-    value: "https://keycloak.sieczak.cloud"
+  - name: KC_PROXY_HEADERS
+    value: xforwarded
