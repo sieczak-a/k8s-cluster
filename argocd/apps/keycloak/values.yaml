@@ -1,14 +1,10 @@
 ---
 extraEnvVars:
+  - name: KC_PROXY
+    value: edge
   - name: KC_HOSTNAME
     value: keycloak.sieczak.cloud
   - name: KC_HOSTNAME_STRICT
-    value: "false"  # Zmienione na false dla prostszej konfiguracji
-  - name: KC_PROXY
-    value: edge
-  - name: KC_PROXY_ADDRESS_FORWARDING
     value: "true"
-  - name: KC_HTTP_ENABLED
+  - name: KC_HOSTNAME_STRICT_HTTPS
     value: "true"
-  - name: KC_HTTP_PORT
-    value: "8080"
