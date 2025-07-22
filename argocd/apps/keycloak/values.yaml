@@ -1,1 +1,8 @@
 ---
+proxy:
+  addressForwarding: true
+  proxyHeaders: xforwarded
+
+extraEnv:
+  - name: KEYCLOAK_FRONTEND_URL
+    value: "https://keycloak.sieczak.cloud"
