@@ -1,3 +1,2 @@
-_internal_defaults_do_not_set:
-  service:
-    loadBalancerIP: "34.116.229.87"
+service:
+  loadBalancerIP: "34.116.229.87"
