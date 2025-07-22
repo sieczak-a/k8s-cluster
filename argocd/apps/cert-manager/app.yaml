@@ -1,31 +1,31 @@
-apiVersion: argoproj.io/v1alpha1
-kind: Application
-metadata:
-  name: cert-manager
-  namespace: argocd
-  labels:
-    app.kubernetes.io/part-of: argocd
-spec:
-  destination:
-    server: https://kubernetes.default.svc
-    namespace: cert-manager
-  project: default
-  source:
-    chart: cert-manager
-    repoURL: https://charts.jetstack.io
-    targetRevision: v1.14.4
-    helm:
-      valueFiles:
-        - values.yaml
-  syncPolicy:
-    automated:
-      prune: true
-      selfHeal: true
-    retry:
-      limit: 5
-      backoff:
-        duration: 5s
-        factor: 2
-        maxDuration: 3m
-    syncOptions:
-    - CreateNamespace=true
+# apiVersion: argoproj.io/v1alpha1
+# kind: Application
+# metadata:
+#   name: cert-manager
+#   namespace: argocd
+#   labels:
+#     app.kubernetes.io/part-of: argocd
+# spec:
+#   destination:
+#     server: https://kubernetes.default.svc
+#     namespace: cert-manager
+#   project: default
+#   source:
+#     chart: cert-manager
+#     repoURL: https://charts.jetstack.io
+#     targetRevision: v1.14.4
+#     helm:
+#       valueFiles:
+#         - values.yaml
+#   syncPolicy:
+#     automated:
+#       prune: true
+#       selfHeal: true
+#     retry:
+#       limit: 5
+#       backoff:
+#         duration: 5s
+#         factor: 2
+#         maxDuration: 3m
+#     syncOptions:
+#     - CreateNamespace=true
