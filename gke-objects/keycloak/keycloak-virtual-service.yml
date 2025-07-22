@@ -2,19 +2,19 @@
 apiVersion: networking.istio.io/v1beta1
 kind: VirtualService
 metadata:
-  name: keycloack-vs
-  namespace: keycloack
+  name: keycloak-vs
+  namespace: keycloak
 spec:
   hosts:
-    - keycloack.sieczak.cloud
+    - keycloak.sieczak.cloud
   gateways:
-    - keycloack-gateway
+    - keycloak-gateway
   http:
     - match:
         - uri:
             prefix: /
       route:
         - destination:
-            host: keycloack.keycloack.svc.cluster.local
+            host: keycloak.keycloak.svc.cluster.local
             port:
               number: 80

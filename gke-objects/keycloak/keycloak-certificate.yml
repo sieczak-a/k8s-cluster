@@ -2,12 +2,12 @@
 apiVersion: cert-manager.io/v1
 kind: Certificate
 metadata:
-  name: keycloack-sieczak-cloud-cert
+  name: keycloak-sieczak-cloud-cert
   namespace: istio-ingress
 spec:
-  secretName: keycloack-sieczak-cloud-tls
+  secretName: keycloak-sieczak-cloud-tls
   issuerRef:
     name: letsencrypt-prod
     kind: ClusterIssuer
   dnsNames:
-    - keycloack.sieczak.cloud
+    - keycloak.sieczak.cloud
