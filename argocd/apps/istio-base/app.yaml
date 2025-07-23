@@ -17,6 +17,12 @@ spec:
     repoURL: https://istio-release.storage.googleapis.com/charts
     chart: base
     targetRevision: 1.26.2
+  ignoreDifferences:
+    - group: admissionregistration.k8s.io
+      kind: ValidatingWebhookConfiguration
+      name: istiod-default-validator
+      jsonPointers:
+        - /webhooks/0/failurePolicy
   syncPolicy:
     automated:
       prune: true
