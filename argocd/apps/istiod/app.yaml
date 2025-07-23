@@ -21,6 +21,12 @@ spec:
       parameters:
         - name: defaultRevision
           value: default
+  ignoreDifferences:
+    - group: admissionregistration.k8s.io
+      kind: ValidatingWebhookConfiguration
+      name: istiod-default-validator
+      jqPathExpressions:
+        - .webhooks[] | select(.name == "validation.istio.io") | .failurePolicy
   syncPolicy:
     automated:
       prune: true
