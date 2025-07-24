@@ -2,3 +2,15 @@
 extraEnvVars:
   - name: KC_PROXY_HEADERS
     value: xforwarded
+
+postgresql:
+  enabled: true
+  auth:
+    postgresPassword: ""
+    username: bn_keycloak
+    password: ""
+    database: bitnami_keycloak
+    existingSecret: "keycloak-postgresql"
+    secretKeys:
+      userPasswordKey: password
+  architecture: standalone
