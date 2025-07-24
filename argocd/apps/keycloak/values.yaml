@@ -12,5 +12,5 @@ postgresql:
     database: bitnami_keycloak
     existingSecret: "keycloak-postgresql"
     secretKeys:
-      userPasswordKey: password
+      userPasswordKey: postgres-password
   architecture: standalone
