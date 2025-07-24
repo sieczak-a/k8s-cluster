@@ -10,7 +10,7 @@ postgresql:
     username: bn_keycloak
     password: ""
     database: bitnami_keycloak
-    existingSecret: "keycloak-postgresql"
+    existingSecret: "keycloak-pg-pass"
     secretKeys:
       userPasswordKey: postgres-password
   architecture: standalone
