@@ -8,10 +8,10 @@ terraform {
 
   # Remote state storage in GCS
   # Replace "your-gke-tf-state-bucket-name" with your actual, unique bucket name
-   backend "gcs" {
-     bucket = "gke-dev-tf-waw-bucket"
-     prefix = "terraform/state"
-   }
+  backend "gcs" {
+    bucket = "gke-dev-tf-waw-bucket"
+    prefix = "terraform/state"
+  }
 }
 
 provider "google" {

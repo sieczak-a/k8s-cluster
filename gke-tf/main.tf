@@ -10,10 +10,10 @@ resource "google_project_iam_member" "gke_sa_roles" {
 }
 
 resource "google_container_cluster" "default" {
-  name                  = "${var.cluster_name}-${var.env}"
-  location              = var.region
-  initial_node_count    = var.initial_node_count
-  deletion_protection   = false
+  name                = "${var.cluster_name}-${var.env}"
+  location            = var.region
+  initial_node_count  = var.initial_node_count
+  deletion_protection = false
 
   project = var.project_id
 
@@ -24,7 +24,7 @@ resource "google_container_cluster" "default" {
   # Use dedicated service account
   node_config {
     service_account = google_service_account.gke_sa.email
-    oauth_scopes    = [
+    oauth_scopes = [
       "https://www.googleapis.com/auth/cloud-platform"
     ]
 
