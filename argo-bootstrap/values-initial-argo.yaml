@@ -5,5 +5,16 @@ crds:
 configs:
   cm:
     admin.enabled: true
+    oidc.config: |
+      name: Keycloak
+      issuer: "https://keycloak.sieczak.cloud/auth/realms/argocd"
+      clientID: "argocd"
+      clientSecret: $oidc.keycloak.clientSecret
+      requestedScopes: ["openid", "profile", "email", "groups"]
   params:
     server.insecure: true
+  rbac:
+    policy.csv: |
+        g, ArgoCDAdmins, role:admin
+
+# https://github.com/argoproj/argo-helm/issues/1593#issuecomment-1308830217
