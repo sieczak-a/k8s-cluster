@@ -6,11 +6,8 @@ extraEnvVars:
 postgresql:
   enabled: true
   auth:
-    postgresPassword: ""
+    postgresPassword: "random-pass"
     username: bn_keycloak
     password: "random-pass"
     database: bitnami_keycloak
-    # existingSecret: "keycloak-pg-pass"
-    # secretKeys:
-    #   userPasswordKey: postgres-password
   architecture: standalone
