@@ -16,11 +16,11 @@ spec:
   source:
     repoURL: https://helm.releases.hashicorp.com
     chart: vault
-    targetRevision: 0.27.0
+    targetRevision: 0.30.0
     helm:
       parameters:
         - name: server.ha.enabled
-          value: "true"
+          value: "false"
         - name: server.resources.requests.cpu
           value: "10m"
         - name: server.resources.requests.memory
