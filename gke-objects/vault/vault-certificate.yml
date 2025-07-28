@@ -1,0 +1,13 @@
+---
+apiVersion: cert-manager.io/v1
+kind: Certificate
+metadata:
+  name: vault-sieczak-cloud-cert
+  namespace: istio-ingress
+spec:
+  secretName: vault-sieczak-cloud-tls
+  issuerRef:
+    name: letsencrypt-prod
+    kind: ClusterIssuer
+  dnsNames:
+    - vault.sieczak.cloud
