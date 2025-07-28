@@ -2,12 +2,3 @@
 extraEnvVars:
   - name: KC_PROXY_HEADERS
     value: xforwarded
-
-postgresql:
-  enabled: true
-  auth:
-    postgresPassword: "random-pass"
-    username: bn_keycloak
-    password: "random-pass"
-    database: bitnami_keycloak
-  architecture: standalone
