@@ -1,4 +1,5 @@
 terraform {
+  required_version = ">= 1.6"
   required_providers {
     google = {
       source  = "hashicorp/google"
@@ -7,7 +8,6 @@ terraform {
   }
 
   # Remote state storage in GCS
-  # Replace "your-gke-tf-state-bucket-name" with your actual, unique bucket name
   backend "gcs" {
     bucket = "gke-dev-tf-waw-bucket"
     prefix = "terraform/state"
