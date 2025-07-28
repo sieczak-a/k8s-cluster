@@ -1,0 +1,43 @@
+---
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: vault
+  namespace: argocd
+  annotations:
+    argocd.argoproj.io/sync-wave: "1"
+  labels:
+    app.kubernetes.io/part-of: argocd
+spec:
+  destination:
+    server: https://kubernetes.default.svc
+    namespace: vault
+  project: default
+  source:
+    repoURL: https://helm.releases.hashicorp.com
+    chart: vault
+    targetRevision: 0.27.0
+    helm:
+      parameters:
+        - name: server.ha.enabled
+          value: "true"
+        - name: server.resources.requests.cpu
+          value: "10m"
+        - name: server.resources.requests.memory
+          value: "32Mi"
+        - name: server.resources.limits.cpu
+          value: "100m"
+        - name: server.resources.limits.memory
+          value: "64Mi"
+  syncPolicy:
+    automated:
+      prune: true
+      selfHeal: true
+    retry:
+      limit: 5
+      backoff:
+        duration: 5s
+        factor: 2
+        maxDuration: 3m
+    syncOptions:
+      - CreateNamespace=true
