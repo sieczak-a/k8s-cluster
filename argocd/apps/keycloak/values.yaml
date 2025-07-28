@@ -8,9 +8,9 @@ postgresql:
   auth:
     postgresPassword: ""
     username: bn_keycloak
-    password: ""
+    password: "random-pass"
     database: bitnami_keycloak
-    existingSecret: "keycloak-pg-pass"
-    secretKeys:
-      userPasswordKey: postgres-password
+    # existingSecret: "keycloak-pg-pass"
+    # secretKeys:
+    #   userPasswordKey: postgres-password
   architecture: standalone
