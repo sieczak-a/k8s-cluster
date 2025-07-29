@@ -18,17 +18,27 @@ spec:
     chart: vault
     targetRevision: 0.30.0
     helm:
-      parameters:
-        - name: server.ha.enabled
-          value: "true"
-        - name: server.resources.requests.cpu
-          value: "10m"
-        - name: server.resources.requests.memory
-          value: "32Mi"
-        - name: server.resources.limits.cpu
-          value: "100m"
-        - name: server.resources.limits.memory
-          value: "64Mi"
+      values: |
+        server:
+          ha:
+            enabled: true
+            replicas: 3
+            config: |
+              ui = true
+              listener "tcp" {
+                address     = "0.0.0.0:8200"
+                tls_disable = 1
+              }
+              storage "raft" {
+                path    = "/vault/data"
+              }
+          resources:
+            requests:
+              cpu: 10m
+              memory: 32Mi
+            limits:
+              cpu: 100m
+              memory: 64Mi
   ignoreDifferences:
     - group: admissionregistration.k8s.io
       kind: MutatingWebhookConfiguration
