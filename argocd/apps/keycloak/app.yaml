@@ -16,8 +16,21 @@ spec:
     repoURL: https://charts.bitnami.com/bitnami
     targetRevision: 24.7.7
     helm:
-      valueFiles:
-        - values.yaml
+      values: |
+        auth:
+          adminUser: admin
+          existingSecret: "keycloak-app-secret"
+          passwordSecretKey: "admin-password"
+        proxyHeaders: "xforwarded"
+        postgresql:
+          enabled: true
+          auth:
+            username: bn_keycloak
+            database: bitnami_keycloak
+            existingSecret: "keycloak-app-secret"
+            secretKeys:
+              userPasswordKey: postgres-password
+          architecture: standalone
   syncPolicy:
     automated:
       prune: true
