@@ -29,6 +29,11 @@ spec:
           value: "100m"
         - name: server.resources.limits.memory
           value: "64Mi"
+  ignoreDifferences:
+    - group: admissionregistration.k8s.io
+      kind: MutatingWebhookConfiguration
+      jqPathExpressions:
+        - .webhooks[]?.clientConfig.caBundle
   syncPolicy:
     automated:
       prune: true
