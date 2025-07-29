@@ -19,26 +19,30 @@ spec:
     targetRevision: 0.30.0
     helm:
       values: |
-        server:
-          ha:
-            enabled: true
-            replicas: 3
-            config: |
-              ui = true
-              listener "tcp" {
-                address     = "0.0.0.0:8200"
-                tls_disable = 1
-              }
-              storage "raft" {
-                path    = "/vault/data"
-              }
-          resources:
-            requests:
-              cpu: 10m
-              memory: 32Mi
-            limits:
-              cpu: 100m
-              memory: 64Mi
+    server:
+      ha:
+        enabled: true
+        replicas: 3
+        config: |
+          ui = true
+          listener "tcp" {
+            address     = "0.0.0.0:8200"
+            tls_disable = 1
+          }
+          storage "raft" {
+            path    = "/vault/data"
+          }
+      dataStorage:
+        enabled: true
+        size: 1Gi
+        storageClass: "standard-rwo"
+      resources:
+        requests:
+          cpu: 10m
+          memory: 32Mi
+        limits:
+          cpu: 100m
+          memory: 64Mi
   ignoreDifferences:
     - group: admissionregistration.k8s.io
       kind: MutatingWebhookConfiguration
