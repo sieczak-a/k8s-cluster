@@ -1,31 +1,32 @@
-# apiVersion: argoproj.io/v1alpha1
-# kind: Application
-# metadata:
-#   name: vault-secrets-operator
-#   namespace: argocd
-#   labels:
-#     app.kubernetes.io/part-of: argocd
-# spec:
-#   destination:
-#     server: https://kubernetes.default.svc
-#     namespace: vault-secrets-operator
-#   project: default
-#   source:
-#     chart: vault-secrets-operator
-#     repoURL: https://helm.releases.hashicorp.com
-#     targetRevision: 0.10.0
-#     helm:
-#       valueFiles:
-#         - values.yaml
-#   syncPolicy:
-#     automated:
-#       prune: true
-#       selfHeal: true
-#     retry:
-#       limit: 5
-#       backoff:
-#         duration: 5s
-#         factor: 2
-#         maxDuration: 3m
-#     syncOptions:
-#     - CreateNamespace=true
+---
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: vault-secrets-operator
+  namespace: argocd
+  labels:
+    app.kubernetes.io/part-of: argocd
+spec:
+  destination:
+    server: https://kubernetes.default.svc
+    namespace: vault-secrets-operator
+  project: default
+  source:
+    chart: vault-secrets-operator
+    repoURL: https://helm.releases.hashicorp.com
+    targetRevision: 0.10.0
+    helm:
+      valueFiles:
+        - values.yaml
+  syncPolicy:
+    automated:
+      prune: true
+      selfHeal: true
+    retry:
+      limit: 5
+      backoff:
+        duration: 5s
+        factor: 2
+        maxDuration: 3m
+    syncOptions:
+      - CreateNamespace=true
