@@ -1,0 +1,9 @@
+---
+apiVersion: secrets.hashicorp.com/v1beta1
+kind: VaultConnection
+metadata:
+  name: vault-conn
+  namespace: keycloak
+spec:
+  address: https://vault.sieczak.cloud
+  skipTLSVerify: false
