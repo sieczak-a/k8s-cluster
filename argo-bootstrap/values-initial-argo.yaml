@@ -2,15 +2,18 @@
 crds:
   install: true
 
+global:
+  domain: argo.sieczak.cloud
+
 configs:
   cm:
     admin.enabled: true
     oidc.config: |
       name: Keycloak
-      issuer: "https://keycloak.sieczak.cloud/auth/realms/argocd"
+      issuer: "https://keycloak.sieczak.cloud/realms/master"
       clientID: "argocd"
       clientSecret: $oidc.keycloak.clientSecret
-      requestedScopes: ["openid", "profile", "email", "groups"]
+      requestedScopes: ["openid", "profile", "email"]
   params:
     server.insecure: true
   rbac:
