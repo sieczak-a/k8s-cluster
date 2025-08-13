@@ -1,0 +1,27 @@
+---
+apiVersion: kustomize.config.k8s.io/v1beta1
+kind: Kustomization
+
+metadata:
+  name: nginx-base
+
+resources:
+  - deployment.yaml
+  - service.yaml
+
+configMapGenerator:
+  - name: nginx-config
+    files:
+      - configs/default.conf
+    options:
+      labels:
+        app: nginx
+
+labels:
+  - pairs:
+      app: nginx
+      version: "1.25"
+
+images:
+  - name: nginx
+    newTag: "1.25-alpine"

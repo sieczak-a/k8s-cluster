@@ -1,0 +1,36 @@
+---
+apiVersion: kustomize.config.k8s.io/v1beta1
+kind: Kustomization
+
+metadata:
+  name: nginx-prod
+
+namespace: nginx-prod
+
+resources:
+  - ../../base
+  - namespace.yaml
+
+patches:
+  - path: patches/replica-patch.yaml
+    target:
+      kind: Deployment
+      name: nginx
+  - path: patches/resources-patch.yaml
+    target:
+      kind: Deployment
+      name: nginx
+
+labels:
+  - pairs:
+      environment: prod
+
+namePrefix: prod-
+
+commonAnnotations:
+  environment: production
+  maintainer: devops-team
+
+images:
+  - name: nginx
+    newTag: "1.25-alpine"
